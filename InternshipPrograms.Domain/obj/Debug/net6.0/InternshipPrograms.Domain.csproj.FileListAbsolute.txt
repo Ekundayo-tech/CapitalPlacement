@@ -1,0 +1,12 @@
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\bin\Debug\net6.0\InternshipPrograms.Domain.deps.json
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\bin\Debug\net6.0\InternshipPrograms.Domain.dll
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\bin\Debug\net6.0\InternshipPrograms.Domain.pdb
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\InternshipPrograms.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\InternshipPrograms.Domain.AssemblyInfoInputs.cache
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\InternshipPrograms.Domain.AssemblyInfo.cs
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\InternshipPrograms.Domain.csproj.CoreCompileInputs.cache
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\InternshipPrograms.Domain.sourcelink.json
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\InternshipPrograms.Domain.dll
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\refint\InternshipPrograms.Domain.dll
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\InternshipPrograms.Domain.pdb
+C:\Users\USER\Desktop\keys\InternshipPrograms\InternshipPrograms.Domain\obj\Debug\net6.0\ref\InternshipPrograms.Domain.dll

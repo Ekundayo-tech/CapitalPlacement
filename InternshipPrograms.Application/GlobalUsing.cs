@@ -1,0 +1,10 @@
+﻿global using Microsoft.Extensions.DependencyInjection;
+global using Serilog;
+global using System.Data;
+global using InternshipPrograms.Application.Services.Implementations;
+global using InternshipPrograms.Application.Services.Interfaces;
+global using InternshipPrograms.Application.Dtos;
+global using InternshipPrograms.Domain.Entities;
+global using InternshipPrograms.Infrastructures.Data;
+global using Microsoft.Extensions.Configuration; 
+global using Microsoft.EntityFrameworkCore;
