@@ -1,9 +1,4 @@
-﻿using InternshipPrograms.Application.Dtos;
-using InternshipPrograms.Application.Services.Interfaces;
-using InternshipPrograms.Domain.Entities;
- 
-
-namespace InternshipPrograms.Application.Services.Implementations
+﻿namespace InternshipPrograms.Application.Services.Implementations
 {
     public class CandidateApplicationService : ICandidateApplication
     {
@@ -22,6 +17,8 @@ namespace InternshipPrograms.Application.Services.Implementations
         { 
             try
             {
+                logger.Information($"Request: {entity}");
+
                 CandidateApplication candidate = new();
                 candidate.Id = Guid.NewGuid().ToString();
                 candidate.FirstName = entity.FirstName;
@@ -45,6 +42,7 @@ namespace InternshipPrograms.Application.Services.Implementations
             }
             catch (Exception e)
             {
+                logger.Error($"Exception:{e}");
                 throw;
             }
         }
@@ -52,6 +50,7 @@ namespace InternshipPrograms.Application.Services.Implementations
         public async Task<string> DeleteAsync(string id)
         {
             var taskToRemove = context.CandidateApplication.Find(id);
+            logger.Information($"Deleted: {taskToRemove}");
             if (taskToRemove != null)
             {
                 context.CandidateApplication.Remove(taskToRemove);
@@ -64,19 +63,24 @@ namespace InternshipPrograms.Application.Services.Implementations
         public async Task<IEnumerable<CandidateApplicationDto>> GetAllAsync()
         {
             var project = await context.CandidateApplication.AsNoTracking().Select(x => new CandidateApplicationDto(x)).ToListAsync();
+
+            logger.Information($"Response: {project}");
             return project;
         }
 
         public async Task<CandidateApplicationDto> GetAsync(string id)
         {
             var res = await context.CandidateApplication.Where(p => p.Id == id).AsNoTracking().Select(x => new CandidateApplicationDto(x)).FirstOrDefaultAsync();
+
+            logger.Information($"Response: {res}");
             return res;
         }
 
         public async Task<string> UpdateAsync(UpdateCandidateApplicationDto entity)
         {
             try
-            { 
+            {
+                logger.Information($"Request: {entity}");
                 var candidate = await context.CandidateApplication.FirstOrDefaultAsync(x => x.Id == entity.Id);
                 ArgumentNullException.ThrowIfNull(candidate);
 
@@ -101,6 +105,7 @@ namespace InternshipPrograms.Application.Services.Implementations
             }
             catch (Exception e)
             {
+                logger.Error($"Exception:{e}");
                 throw;
             }
         }

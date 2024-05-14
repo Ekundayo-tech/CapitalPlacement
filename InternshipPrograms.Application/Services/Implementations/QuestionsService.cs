@@ -1,6 +1,4 @@
-﻿ 
-
-namespace InternshipPrograms.Application.Services.Implementations
+﻿namespace InternshipPrograms.Application.Services.Implementations
 { 
     public class QuestionsService : IQuestion
     {
@@ -20,7 +18,9 @@ namespace InternshipPrograms.Application.Services.Implementations
         {
             try
             {
-                if(entity.Choices.Count() > int.Parse(entity.MaxChoiceAllowed))
+
+                logger.Information($"Request:{entity}");
+                if (entity.Choices.Count() > int.Parse(entity.MaxChoiceAllowed))
                 {
                     return "Maximum choice exceeded";
                 }
@@ -42,7 +42,7 @@ namespace InternshipPrograms.Application.Services.Implementations
             }
             catch (Exception e)
             {
-                logger.Information($"Exception:{e}");
+                logger.Error($"Exception:{e}");
                 throw;
             }
         }
@@ -50,6 +50,8 @@ namespace InternshipPrograms.Application.Services.Implementations
         public async Task<string> DeleteAsync(string id)
         {
             var taskToRemove = context.Questions.Find(id);
+
+            logger.Information($"deleted: {taskToRemove}");
             if (taskToRemove != null)
             {
                 context.Questions.Remove(taskToRemove);
@@ -68,6 +70,8 @@ namespace InternshipPrograms.Application.Services.Implementations
         public async Task<QuestionsDto> GetAsync(string id)
         {
             var res = await context.Questions.Where(p => p.Id == id).AsNoTracking().Select(x => new QuestionsDto(x)).FirstOrDefaultAsync();
+
+            logger.Information($"Response: {res}");
             return res;
         }
 
@@ -80,7 +84,9 @@ namespace InternshipPrograms.Application.Services.Implementations
         public async Task<string> UpdateAsync(UpdateQuestionsDto entity)
         {
             try
-            {   
+            {
+
+                logger.Information($"Request: {entity}");
                 var question = await context.Questions.FirstOrDefaultAsync(x => x.Id == entity.Id);
 
                 ArgumentNullException.ThrowIfNull(question);
@@ -100,7 +106,7 @@ namespace InternshipPrograms.Application.Services.Implementations
             catch (Exception e)
             {
 
-                logger.Information($"Exception:{e}");
+                logger.Error($"Exception:{e}");
                 return "An Error Occured";
             }
         }

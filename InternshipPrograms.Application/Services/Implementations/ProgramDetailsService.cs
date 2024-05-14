@@ -1,5 +1,4 @@
-﻿ 
-namespace InternshipPrograms.Application.Services.Implementations
+﻿namespace InternshipPrograms.Application.Services.Implementations
 {
     public class ProgramDetailsService : IProgramDetails
     {
@@ -54,6 +53,7 @@ namespace InternshipPrograms.Application.Services.Implementations
             }
             catch (Exception e)
             {
+                logger.Error($"Exception:{e}");
                 throw;
             }
         }
@@ -61,6 +61,8 @@ namespace InternshipPrograms.Application.Services.Implementations
         public async Task<string> DeleteAsync(string id)
         {
             var taskToRemove = context.Program.Find(id);
+
+            logger.Information($"deleted: {taskToRemove}");
             if (taskToRemove != null)
             {
                 context.Program.Remove(taskToRemove);
@@ -73,12 +75,16 @@ namespace InternshipPrograms.Application.Services.Implementations
         public async Task<IEnumerable<ProgramDetailDto>> GetAllAsync()
         {
             var project = await context.Program.AsNoTracking().Select(x => new ProgramDetailDto(x)).ToListAsync();
+
+            logger.Information($"Response: {project}");
             return project;
         }
 
         public async Task<ProgramDetailDto> GetAsync(string id)
         {
             var res = await context.Program.AsNoTracking().Where(p => p.Id == id).Select(x => new ProgramDetailDto(x)).FirstOrDefaultAsync();
+
+            logger.Information($"Response: {res}");
             return res;
         }
 
@@ -120,6 +126,7 @@ namespace InternshipPrograms.Application.Services.Implementations
             }
             catch (Exception e)
             {
+                logger.Error($"Exception:{e}");
                 throw;
             }
         }

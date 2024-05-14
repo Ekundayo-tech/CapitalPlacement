@@ -1,5 +1,3 @@
- 
-
 namespace InternshipPrograms
 {
     public class Program

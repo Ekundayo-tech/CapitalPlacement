@@ -103,21 +103,7 @@ namespace TestProject
             Assert.Equal(testGuid.ToString(), (okResult.Value as QuestionsDto).Id);
         }
 
-        //[Fact]
-        //public void Add_InvalidObjectPassed_ReturnsBadRequest()
-        //{
-        //    // Arrange
-        //    var nameMissingItem = new EducationModel()
-        //    {
-        //    };
-        //    _controller.ModelState.AddModelError("School", "Required");
-
-        //    // Act
-        //    var badResponse = _controller.Post(nameMissingItem).Result;
-
-        //    // Assert
-        //    Assert.IsType<BadRequestObjectResult>(badResponse);
-        //}
+     
 
         [Fact]
         public void Add_ValidObjectPassed_ReturnsCreatedResponse()
